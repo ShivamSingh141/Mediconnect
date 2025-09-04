@@ -16,6 +16,7 @@ app.use(cors())
 
 // api endpoints
 app.use('/api/admin',adminRouter)
+
 //loacalhost:4000/api/admin/add-doctor
 
 app.get('/',(req,res)=>res.status(200).send('hello world '))
