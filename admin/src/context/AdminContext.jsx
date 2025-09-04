@@ -1,17 +1,21 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
-export const AdminContext=createContext()
+export const AdminContext = createContext();
 
-const Admincontextprovider=(props)=>{
-
-    const value={
-
-    }
-    return (
-        <AdminContext.Provider value={value}>
-            {props.children}
-        </AdminContext.Provider>
-    )
-
-}
-export default Admincontextprovider
+const Admincontextprovider = (props) => {
+  const [aToken, setaToken] = useState(
+    localStorage.getItem("aToken") ? localStorage.getItem("aToken") : ""
+  );
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const value = {
+    aToken,
+    setaToken,
+    backendUrl,
+  };
+  return (
+    <AdminContext.Provider value={value}>
+      {props.children}
+    </AdminContext.Provider>
+  );
+};
+export default Admincontextprovider;

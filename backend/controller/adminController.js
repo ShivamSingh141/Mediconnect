@@ -36,9 +36,9 @@ const doctordata={
     password:hashedPassword,
     speciality,
     degree,
-    experience,
+    experience:Number(experience),
     about,
-    fees,
+    fees: Number(fees),
     address:JSON.parse(address),
     date:Date.now()
 }
